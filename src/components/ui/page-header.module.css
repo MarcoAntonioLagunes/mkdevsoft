@@ -1,0 +1,22 @@
+.wrap {
+  display: grid;
+  gap: 1rem;
+  padding: 4.5rem 0 2.5rem;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 14ch;
+}
+
+.lead {
+  max-width: 56ch;
+  color: var(--text-muted);
+}

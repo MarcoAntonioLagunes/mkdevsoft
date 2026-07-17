@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 120" role="img" aria-label="MKDevSoft horizontal oscuro">
+  <rect width="620" height="120" rx="20" fill="#0b1324"/>
+  <g transform="translate(22,22)">
+    <rect width="76" height="76" rx="16" fill="#111b31"/>
+    <path d="M12 14h10l16 16 16-16h10v46h-10V28.5L38.6 46h-.6L22 28.5V60H12V14Z" fill="#f8fbff"/>
+    <path d="M46.5 33 64 50.5v3.5h-8L39.5 37z" fill="#f8fbff"/>
+    <path d="M55 14h9L46.5 31.5 39 26.5 51 14z" fill="url(#hGrad)"/>
+    <path d="M46.5 32 64 49.5V54h-3L39.6 32.5z" fill="url(#hGrad)"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-size="68" font-weight="700" transform="translate(122,80)">
+    <text fill="#f8fbff">MK</text>
+    <text x="112" fill="#4d97ff">Dev</text>
+    <text x="240" fill="#f8fbff">Soft</text>
+  </g>
+  <defs>
+    <linearGradient id="hGrad" x1="39" y1="14" x2="64" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3a92ff"/>
+      <stop offset="0.55" stop-color="#39c8ff"/>
+      <stop offset="1" stop-color="#6f62ff"/>
+    </linearGradient>
+  </defs>
+</svg>

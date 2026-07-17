@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MKDevSoft icon">
+  <rect width="64" height="64" rx="16" fill="#11131c"/>
+  <path d="M16 20h8l8 12 8-12h8v24h-7V31l-9 13h-1L22 31v13h-6V20Z" fill="#eef1f7"/>
+  <path d="M18 46h28" stroke="#5d9cff" stroke-width="2" stroke-linecap="round"/>
+</svg>

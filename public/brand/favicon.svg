@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Favicon MKDevSoft">
+  <rect width="64" height="64" rx="14" fill="#0b1324"/>
+  <path d="M11 15h7l14 14 14-14h7v34h-7V26L32.2 39.9h-.4L18 26v23h-7V15Z" fill="#f8fbff"/>
+  <path d="M39.3 31.9 53 45.8v3.2h-6.3L33 35.1z" fill="#f8fbff"/>
+  <path d="M46.6 15H53L39.3 28.9 33 24.7 42.4 15z" fill="url(#favGrad)"/>
+  <path d="M39.3 31.1 53 45v4h-2.3L33.8 32.2z" fill="url(#favGrad)"/>
+  <defs>
+    <linearGradient id="favGrad" x1="33" y1="15" x2="53" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3a92ff"/>
+      <stop offset="0.55" stop-color="#39c8ff"/>
+      <stop offset="1" stop-color="#6f62ff"/>
+    </linearGradient>
+  </defs>
+</svg>

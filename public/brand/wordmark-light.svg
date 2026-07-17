@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 72" role="img" aria-label="MKDevSoft sobre fondo claro">
+  <rect width="360" height="72" rx="12" fill="none"/>
+  <g font-family="Inter, Arial, sans-serif" font-size="58" font-weight="700">
+    <text x="2" y="53" fill="#0a1222">MK</text>
+    <text x="97" y="53" fill="#2f7ef0">Dev</text>
+    <text x="205" y="53" fill="#0a1222">Soft</text>
+  </g>
+</svg>
