@@ -86,22 +86,23 @@
 .activeLink,
 .link:hover {
   color: #f7f9ff;
-  background: rgba(80, 118, 190, 0.15);
+  background: rgba(139, 92, 246, 0.14);
   transform: translateY(-1px);
 }
 
 .cta {
   margin-left: 0.55rem;
-  background: linear-gradient(125deg, var(--accent), var(--accent-2));
-  color: #0a0c12;
-  border: 1px solid rgba(180, 220, 255, 0.5);
-  box-shadow: 0 10px 30px rgba(22, 76, 162, 0.35);
+  background: var(--cta);
+  color: #06120d;
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  box-shadow: 0 10px 26px rgba(16, 185, 129, 0.28);
   font-weight: 700;
 }
 
 .cta:hover {
   transform: translateY(-1px);
-  box-shadow: 0 14px 32px rgba(22, 76, 162, 0.4);
+  background: var(--cta-hover);
+  box-shadow: 0 14px 32px rgba(16, 185, 129, 0.38);
 }
 
 .menuButton {
@@ -163,8 +164,8 @@
 
   .mobileCta {
     margin-top: 0.25rem;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #0a0c12;
+    background: var(--cta);
+    color: #06120d;
     font-weight: 700;
   }
 

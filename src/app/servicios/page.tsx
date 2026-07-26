@@ -1,5 +1,27 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/ui/page-header';
+
+const SERVICIOS_TITLE = 'Servicios de desarrollo de software';
+const SERVICIOS_DESCRIPTION = 'Plataformas web, sistemas empresariales, aplicaciones móviles, automatización y cloud para negocios en Veracruz y Boca del Río.';
+
+export const metadata: Metadata = {
+  title: SERVICIOS_TITLE,
+  description: SERVICIOS_DESCRIPTION,
+  alternates: { canonical: '/servicios' },
+  openGraph: {
+    title: `${SERVICIOS_TITLE} | MKDevSoft`,
+    description: SERVICIOS_DESCRIPTION,
+    url: '/servicios',
+    images: ['/og/mkdevsoft-og-image.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SERVICIOS_TITLE} | MKDevSoft`,
+    description: SERVICIOS_DESCRIPTION,
+    images: ['/og/mkdevsoft-og-image.png'],
+  },
+};
 
 const serviceRoutes = [
   { href: '/desarrollo-web', title: 'Plataformas web', summary: 'Sitios, portales y experiencias orientadas a conversión y operación.' },

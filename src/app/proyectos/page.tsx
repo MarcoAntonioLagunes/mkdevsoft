@@ -1,5 +1,27 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/ui/page-header';
+
+const PROYECTOS_TITLE = 'Proyectos y casos de implementación';
+const PROYECTOS_DESCRIPTION = 'Conoce los proyectos que hemos desarrollado: arquitectura, procesos y resultados documentados para negocios reales.';
+
+export const metadata: Metadata = {
+  title: PROYECTOS_TITLE,
+  description: PROYECTOS_DESCRIPTION,
+  alternates: { canonical: '/proyectos' },
+  openGraph: {
+    title: `${PROYECTOS_TITLE} | MKDevSoft`,
+    description: PROYECTOS_DESCRIPTION,
+    url: '/proyectos',
+    images: ['/og/mkdevsoft-og-image.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${PROYECTOS_TITLE} | MKDevSoft`,
+    description: PROYECTOS_DESCRIPTION,
+    images: ['/og/mkdevsoft-og-image.png'],
+  },
+};
 
 const projects = [
   { href: '/proyectos/ultracloud', title: 'UltraCloud', label: 'Proyecto destacado', summary: 'Caso de implementación para documentar arquitectura, seguridad y evolución.' },

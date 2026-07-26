@@ -1,6 +1,28 @@
+import type { Metadata } from 'next';
 import { PageHeader } from '@/components/ui/page-header';
 import { ContactForm } from '@/components/contact/contact-form';
 import { company } from '@/data/company';
+
+const CONTACTO_TITLE = 'Contacto — Cotiza tu proyecto';
+const CONTACTO_DESCRIPTION = 'Cuéntanos tu idea, sistema o reto. Te respondemos con una revisión inicial de alcance y siguientes pasos para tu proyecto.';
+
+export const metadata: Metadata = {
+  title: CONTACTO_TITLE,
+  description: CONTACTO_DESCRIPTION,
+  alternates: { canonical: '/contacto' },
+  openGraph: {
+    title: `${CONTACTO_TITLE} | MKDevSoft`,
+    description: CONTACTO_DESCRIPTION,
+    url: '/contacto',
+    images: ['/og/mkdevsoft-og-image.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${CONTACTO_TITLE} | MKDevSoft`,
+    description: CONTACTO_DESCRIPTION,
+    images: ['/og/mkdevsoft-og-image.png'],
+  },
+};
 
 export default function ContactoPage() {
   return (
