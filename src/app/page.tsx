@@ -165,7 +165,6 @@ export default function HomePage() {
             <p className="lead">Diseñamos páginas web, aplicaciones y sistemas empresariales que digitalizan procesos, mejoran la operación y convierten ideas en productos funcionales.</p>
             <div className="hero-actions">
               <Link className="button button-primary" href="/contacto">Cotizar mi proyecto →</Link>
-              <Link className="button button-secondary" href="/proyectos">Ver casos de éxito</Link>
               <a className="hero-link" href={company.whatsapp} target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
             </div>
             <div className="hero-trust-row">

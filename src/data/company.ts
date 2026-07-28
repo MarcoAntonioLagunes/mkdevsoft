@@ -18,7 +18,6 @@ export const navigation = [
   { id: 'inicio', href: '/', label: 'Inicio' },
   { id: 'soluciones', href: '/#soluciones', label: 'Soluciones' },
   { id: 'servicios', href: '/servicios', label: 'Servicios' },
-  { id: 'proyectos', href: '/proyectos', label: 'Proyectos' },
   { id: 'proceso', href: '/#proceso', label: 'Proceso' },
   { id: 'nosotros', href: '/nosotros', label: 'Nosotros' },
   { id: 'contacto', href: '/contacto', label: 'Contacto' },
