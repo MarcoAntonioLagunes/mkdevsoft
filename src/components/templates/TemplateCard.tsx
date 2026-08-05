@@ -21,7 +21,7 @@ const CATEGORY_LABELS: Record<TemplateCategory, string> = {
 
 export function TemplateCard({ template }: TemplateCardProps) {
   const reduceMotion = useReducedMotion();
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { shouldAnimate } = usePreviewPlayback(ref);
 
   return (

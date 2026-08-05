@@ -8,7 +8,7 @@ export type PreviewPlaybackState = {
   shouldAnimate: boolean;
 };
 
-export function usePreviewPlayback<T extends Element>(ref: RefObject<T>): PreviewPlaybackState {
+export function usePreviewPlayback<T extends HTMLElement>(ref: RefObject<T | null>): PreviewPlaybackState {
   const reducedMotion = useReducedMotion();
   const [isInView, setIsInView] = useState(false);
   const [isPageVisible, setIsPageVisible] = useState(true);
