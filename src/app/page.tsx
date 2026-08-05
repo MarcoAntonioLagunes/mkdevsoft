@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import type { Metadata } from 'next';
-import { capabilities, company, featurePillars, processSteps } from '@/data/company';
-import { Reveal } from '@/components/home/reveal';
+import { capabilities, company, featurePillars } from '@/data/company';
 import { TerminalMockup } from '@/components/home/terminal-mockup';
 import { IconCard } from '@/components/ui/icon-card';
 import { Pricing } from '@/components/home/pricing';
@@ -233,21 +232,6 @@ export default function HomePage() {
                 <span className="flow-node-index">{String(index + 1).padStart(2, '0')}</span>
                 <span>{label}</span>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-alt">
-        <div className="container">
-          <header className="section-heading"><p className="section-label">Proceso</p><h2>Un camino claro, paso a paso.</h2></header>
-          <div className="process-horizontal">
-            {processSteps.map((step, index) => (
-              <Reveal key={step.step} delay={index * 0.08} className="process-step">
-                <div className="process-step-marker">{step.step}</div>
-                <h3>{step.title}</h3>
-                <ul>{step.deliverables.map((deliverable) => <li key={deliverable}>{deliverable}</li>)}</ul>
-              </Reveal>
             ))}
           </div>
         </div>

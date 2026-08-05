@@ -19,8 +19,6 @@ export const navigation = [
   { id: 'soluciones', href: '/#soluciones', label: 'Soluciones' },
   { id: 'servicios', href: '/servicios', label: 'Servicios' },
   { id: 'plantillas', href: '/#plantillas', label: 'Plantillas' },
-  { id: 'proceso', href: '/#proceso', label: 'Proceso' },
-  { id: 'nosotros', href: '/nosotros', label: 'Nosotros' },
   { id: 'contacto', href: '/contacto', label: 'Contacto' },
 ];
 
@@ -40,34 +38,6 @@ export const featurePillars = [
   { title: 'Operación y escalabilidad', description: 'Pensado para crecer sin rehacer todo cuando cambian las necesidades.' },
 ];
 
-export const processSteps = [
-  {
-    step: '01',
-    title: 'Descubrimiento',
-    deliverables: ['Documento de objetivos', 'Mapa del problema', 'Alcance inicial'],
-  },
-  {
-    step: '02',
-    title: 'Definición de producto y alcance',
-    deliverables: ['Requerimientos', 'Priorización', 'Criterios de éxito'],
-  },
-  {
-    step: '03',
-    title: 'Diseño y arquitectura',
-    deliverables: ['Prototipo', 'Arquitectura', 'Modelo de datos'],
-  },
-  {
-    step: '04',
-    title: 'Desarrollo, pruebas e iteración',
-    deliverables: ['Incrementos funcionales', 'Pruebas', 'Documentación'],
-  },
-  {
-    step: '05',
-    title: 'Lanzamiento y evolución',
-    deliverables: ['Despliegue', 'Plan de evolución', 'Soporte inicial'],
-  },
-];
-
 export const technologyGroups = [
   { name: 'Frontend', items: ['Next.js', 'React', 'TypeScript'], description: 'Interfaces rápidas, mantenibles y orientadas a producto.' },
   { name: 'Backend', items: ['NestJS', 'Node.js', 'APIs REST'], description: 'Servicios estructurados para lógica de negocio y automatización.' },
@@ -75,16 +45,6 @@ export const technologyGroups = [
   { name: 'Cloud', items: ['AWS', 'Vercel', 'Railway'], description: 'Infraestructura lista para desplegar, observar y escalar.' },
   { name: 'Seguridad', items: ['JWT', 'RBAC', 'Validación', 'Cifrado'], description: 'Controles base para proteger accesos y datos sensibles.' },
   { name: 'Herramientas', items: ['Git', 'GitHub', 'Swagger', 'Postman'], description: 'Flujo de trabajo y documentación para equipos técnicos.' },
-];
-
-export const certifications = [
-  'Cisco Certified Support Technician Cybersecurity',
-  'Formación en redes',
-  'Formación en IoT',
-  'Cisco Packet Tracer',
-  'Desarrollo Full Stack',
-  'Experiencia en proyectos desplegados',
-  'Experiencia de liderazgo',
 ];
 
 export const pricingPlans = [

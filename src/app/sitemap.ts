@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/aplicaciones',
     '/automatizacion',
     '/cloud-seguridad',
-    '/nosotros',
     '/contacto',
     '/privacidad',
     '/terminos',

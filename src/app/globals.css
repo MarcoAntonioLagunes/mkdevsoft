@@ -488,41 +488,6 @@ p { margin: 0; }
   100% { top: 100%; }
 }
 
-.process-horizontal {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1rem;
-  position: relative;
-  padding-top: 0.5rem;
-}
-.process-horizontal::before {
-  content: '';
-  position: absolute;
-  top: 2.35rem;
-  left: 4%;
-  right: 4%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border-strong) 12%, var(--border-strong) 88%, transparent);
-}
-.process-step { position: relative; display: grid; gap: 0.6rem; }
-.process-step-marker {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: 999px;
-  border: 1px solid rgba(139, 92, 246, 0.4);
-  background: var(--bg-elevated);
-  color: var(--accent-violet);
-  font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 0.9rem;
-}
-.process-step ul { margin: 0.4rem 0 0; padding-left: 1.05rem; color: var(--text-muted); font-size: 0.92rem; display: grid; gap: 0.2rem; }
-
-
 .contact-cta { display: grid; justify-items: start; gap: 0.9rem; padding: 2rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(139, 92, 246, 0.08), rgba(255,255,255,0.02)); }
 .contact-cta-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.3rem; }
 .button-whatsapp { background: var(--cta); color: #06120d; box-shadow: 0 10px 26px rgba(16, 185, 129, 0.28); }
@@ -632,7 +597,6 @@ p { margin: 0; }
 
 @media (max-width: 1100px) {
   .stack-track { gap: 1rem; animation-duration: 34s; }
-  .process-horizontal { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
 @media (max-width: 980px) {
   .hero-grid, .service-grid, .pillar-grid, .tech-grid { grid-template-columns: 1fr; }
@@ -641,8 +605,6 @@ p { margin: 0; }
   .stack-heading { margin-bottom: clamp(2.6rem, 5.6vw, 3.4rem); }
   .stack-orbit { opacity: 0.09; }
   .stack-track { gap: 0.85rem; animation-duration: 32s; }
-  .process-horizontal { grid-template-columns: 1fr; }
-  .process-horizontal::before { display: none; }
   .plan-grid { grid-template-columns: 1fr; }
   .plan-card--featured { transform: none; }
   .testimonial-grid { grid-template-columns: 1fr; }
