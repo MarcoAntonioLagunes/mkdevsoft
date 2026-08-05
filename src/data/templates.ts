@@ -1,83 +1,205 @@
-export type TemplateCategory = 'restaurantes' | 'logistica' | 'fintech';
-export type TemplatePreviewType = 'restaurant' | 'logistics' | 'bank';
+export type TemplateCategory = 'corporativo' | 'ecommerce' | 'portafolio' | 'landing' | 'restaurantes';
 
-export type TemplateDefinition = {
+export type Template = {
   id: string;
   name: string;
   category: TemplateCategory;
+  imageUrl: string;
   description: string;
-  badge: string;
-  heroImage: string;
-  heroAlt: string;
-  accent: string;
-  secondaryAccent: string;
-  previewType: TemplatePreviewType;
-  ctaLabel: string;
-  ctaSecondary: string;
-  features: string[];
-  highlights: string[];
+  feature: string;
 };
 
-export const TEMPLATE_CATEGORIES: { id: TemplateCategory | 'todas'; label: string }[] = [
-  { id: 'todas', label: 'Todas' },
-  { id: 'restaurantes', label: 'Restaurantes' },
-  { id: 'logistica', label: 'Logística' },
-  { id: 'fintech', label: 'Fintech' },
-];
-
-export const CATEGORY_LABELS: Record<TemplateCategory, string> = {
-  restaurantes: 'Restaurante',
-  logistica: 'Logística',
-  fintech: 'Fintech',
-};
-
-export const templates: TemplateDefinition[] = [
+export const templates: Template[] = [
   {
-    id: 'restaurante-la-marea',
-    name: 'Restaurante La Marea',
+    id: 'corp-aurora',
+    name: 'Aurora Corporativo',
+    category: 'corporativo',
+    imageUrl: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80',
+    description: 'Equipo ejecutivo colaborando en una sala de reuniones moderna.',
+    feature: 'Página de negocio con métricas, valores y equipo en primer plano.',
+  },
+  {
+    id: 'corp-meridian',
+    name: 'Meridian Corporativo',
+    category: 'corporativo',
+    imageUrl: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1400&q=80',
+    description: 'Oficina abierta con personas trabajando en estrategia y planificación.',
+    feature: 'Sección de servicios y casos de éxito para consultorías y tecnologías.',
+  },
+  {
+    id: 'corp-solstice',
+    name: 'Solstice Corporativo',
+    category: 'corporativo',
+    imageUrl: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80',
+    description: 'Vista panorámica de una ciudad con oficinas y arquitectura corporativa.',
+    feature: 'Landing de empresa con enfoque en innovación y liderazgo de equipo.',
+  },
+  {
+    id: 'corp-vantage',
+    name: 'Vantage Corporativo',
+    category: 'corporativo',
+    imageUrl: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1400&q=80',
+    description: 'Profesionales revisando métricas en una pantalla digital compartida.',
+    feature: 'Presenta soluciones, servicios y equipo de forma corporativa y moderna.',
+  },
+  {
+    id: 'corp-nimbus',
+    name: 'Nimbus Corporativo',
+    category: 'corporativo',
+    imageUrl: 'https://images.unsplash.com/photo-1492725764894-5c1b1b52aa3b?auto=format&fit=crop&w=1400&q=80',
+    description: 'Espacio de trabajo corporativo con tecnología y diseño minimalista.',
+    feature: 'Página institucional con secciones de valores, clientes y contacto alto.',
+  },
+  {
+    id: 'shop-nova',
+    name: 'Nova E-commerce',
+    category: 'ecommerce',
+    imageUrl: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1400&q=80',
+    description: 'Cliente comprando en línea desde su escritorio con carrito y productos.',
+    feature: 'Catálogo visual con filtros, promociones y carrito rápido en primer plano.',
+  },
+  {
+    id: 'shop-bloom',
+    name: 'Bloom E-commerce',
+    category: 'ecommerce',
+    imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1400&q=80',
+    description: 'Productos de moda expuestos en un entorno bien iluminado.',
+    feature: 'Tienda con colección destacada, reseñas y carrusel de productos premium.',
+  },
+  {
+    id: 'shop-velvet',
+    name: 'Velvet E-commerce',
+    category: 'ecommerce',
+    imageUrl: 'https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1400&q=80',
+    description: 'Cliente usando una tarjeta de crédito para pagar en línea.',
+    feature: 'Proceso de compra optimizado con pagos seguros y venta destacada.',
+  },
+  {
+    id: 'shop-orbit',
+    name: 'Orbit E-commerce',
+    category: 'ecommerce',
+    imageUrl: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1400&q=80',
+    description: 'Tienda digital en una pantalla moderna con productos y ofertas claras.',
+    feature: 'Landing para comercio con promociones, categorías y experiencia de compra rápida.',
+  },
+  {
+    id: 'shop-luma',
+    name: 'Luma E-commerce',
+    category: 'ecommerce',
+    imageUrl: 'https://images.unsplash.com/photo-1495121605193-b116b5b9c5dc?auto=format&fit=crop&w=1400&q=80',
+    description: 'Logística y envíos para tienda en línea, mostrando embalaje y tecnología.',
+    feature: 'Página de tienda con stock inteligente, envíos y servicio al cliente integrado.',
+  },
+  {
+    id: 'port-lumen',
+    name: 'Lumen Portafolio',
+    category: 'portafolio',
+    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=80',
+    description: 'Espacio creativo de diseño digital con equipo trabajando en proyectos.',
+    feature: 'Portafolio para creativos con muestras de trabajo, biografía y contacto directo.',
+  },
+  {
+    id: 'port-studio',
+    name: 'Studio Portafolio',
+    category: 'portafolio',
+    imageUrl: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80',
+    description: 'Estudio de branding con pantallas mostrando proyectos visuales.',
+    feature: 'Galería con proyectos destacados, clientes y enfoque en identidad visual.',
+  },
+  {
+    id: 'port-atelier',
+    name: 'Atelier Portafolio',
+    category: 'portafolio',
+    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80',
+    description: 'Diseñador frente a una computadora con bocetos y prototipos digitales.',
+    feature: 'Landing personal con servicios creativos, testimonios y portafolio visual.',
+  },
+  {
+    id: 'port-grid',
+    name: 'Grid Portafolio',
+    category: 'portafolio',
+    imageUrl: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80',
+    description: 'Mesa de trabajo con bocetos y notas para proyectos de diseño.',
+    feature: 'Presenta proyectos en mosaico con casos de estudio y llamadas a la acción claras.',
+  },
+  {
+    id: 'port-ink',
+    name: 'Ink Portafolio',
+    category: 'portafolio',
+    imageUrl: 'https://images.unsplash.com/photo-1517430816045-df4b7de7d780?auto=format&fit=crop&w=1400&q=80',
+    description: 'Espacio de trabajo creativo con libreta, bocetos y detalles artísticos.',
+    feature: 'Portafolio moderno para creativos con enfoque en experiencia y estilo.',
+  },
+  {
+    id: 'land-impulso',
+    name: 'Impulso Landing',
+    category: 'landing',
+    imageUrl: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80',
+    description: 'Pantalla de computador con dashboard de producto digital y métricas.',
+    feature: 'Landing para producto SaaS con beneficio principal y registro inmediato.',
+  },
+  {
+    id: 'land-momentum',
+    name: 'Momentum Landing',
+    category: 'landing',
+    imageUrl: 'https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1400&q=80',
+    description: 'Equipo de trabajo creativo planificando el lanzamiento de un servicio.',
+    feature: 'Página de servicio con propuesta de valor, beneficios y prueba social.',
+  },
+  {
+    id: 'land-ignite',
+    name: 'Ignite Landing',
+    category: 'landing',
+    imageUrl: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80',
+    description: 'Oficina con pantalla de producto y diseño de experiencia digital.',
+    feature: 'Landing con enfoque en conversión, demo y llamadas a la acción atractivas.',
+  },
+  {
+    id: 'land-vertex',
+    name: 'Vertex Landing',
+    category: 'landing',
+    imageUrl: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1400&q=80',
+    description: 'Vistas de escritorio conectadas, ideal para servicios de software empresarial.',
+    feature: 'Presenta solución, clientes y contenido visual para captar nuevos leads.',
+  },
+  {
+    id: 'land-apex',
+    name: 'Apex Landing',
+    category: 'landing',
+    imageUrl: 'https://images.unsplash.com/photo-1512446810254-7f49e0b4b9a2?auto=format&fit=crop&w=1400&q=80',
+    description: 'Equipo de trabajo remoto interactuando con productos digitales.',
+    feature: 'Experiencia de landing diseñada para transmitir confianza y crecimiento.',
+  },
+  {
+    id: 'rest-braza',
+    name: 'Braza Restaurante',
     category: 'restaurantes',
-    description: 'Landing gastronómica premium para mariscos, reservas y carta con estilo veracruzano.',
-    badge: 'Restaurante',
-    heroImage: '/templates/restaurant-la-marea-hero.svg',
-    heroAlt: 'Interfaz de restaurante La Marea con hero de mariscos y botones de reserva',
-    accent: '#F59E0B',
-    secondaryAccent: '#D97706',
-    previewType: 'restaurant',
-    ctaLabel: 'Reservar mesa',
-    ctaSecondary: 'Ver menú',
-    features: ['Reserva de mesas con horario disponible', 'Promociones del día', 'Menú destacado con fotos', 'Datos de ubicación y horario'],
-    highlights: ['Hero con imagen marítima y CTA animado', 'Reserva confirmada en 3 pasos', 'Estado de mesas y tiempos de llegada'],
+    imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80',
+    description: 'Mesa elegante en restaurante con detalles de presentación culinaria.',
+    feature: 'Landing gastronómica con menú, reservas y ambiente de marca gourmet.',
   },
   {
-    id: 'aduanas-del-golfo',
-    name: 'Aduanas del Golfo',
-    category: 'logistica',
-    description: 'Portal logístico para seguimiento de contenedores, cotizaciones y gestión de despacho internacional.',
-    badge: 'Logística',
-    heroImage: '/templates/logistics-easyship-hero.svg',
-    heroAlt: 'Interfaz de aduanas con seguimiento de carga y timeline de envío',
-    accent: '#0EA5E9',
-    secondaryAccent: '#0369A1',
-    previewType: 'logistics',
-    ctaLabel: 'Cotizar envío',
-    ctaSecondary: 'Rastrear carga',
-    features: ['Seguimiento animado en timeline', 'Cotizaciones rápidas por ruta', 'Panel de estado de despacho', 'Indicadores de cumplimiento y tiempos'],
-    highlights: ['Estado del contenedor en tiempo real', 'Cambio de etapas de envío', 'Resumen de rutas mar y terrestre'],
+    id: 'rest-terracota',
+    name: 'Terracota Restaurante',
+    category: 'restaurantes',
+    imageUrl: 'https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=1400&q=80',
+    description: 'Restaurante cálido con iluminación tenue y experiencia de cena íntima.',
+    feature: 'Web para restaurantes con reserva en línea, cartas y eventos especiales.',
   },
   {
-    id: 'banco-puerto',
-    name: 'Banco Puerto',
-    category: 'fintech',
-    description: 'Experiencia financiera moderna con cuentas, tarjetas y transferencias desde un dashboard premium.',
-    badge: 'Fintech',
-    heroImage: '/templates/fintech-oval-bank-hero.svg',
-    heroAlt: 'Interfaz de banco con saldo, tarjeta y lista de movimientos recientes',
-    accent: '#7C3AED',
-    secondaryAccent: '#0F172A',
-    previewType: 'bank',
-    ctaLabel: 'Transferir ahora',
-    ctaSecondary: 'Ver movimientos',
-    features: ['Saldo en tiempo real y gestión de tarjetas', 'Transferencias con confirmación', 'Movimientos recientes y metas', 'Panel financiero con comparativas'],
-    highlights: ['Simulación de transferencia completada', 'Cards de saldo y gastos', 'Animación de cambio en paneles financieros'],
+    id: 'rest-sazon',
+    name: 'Sazón Restaurante',
+    category: 'restaurantes',
+    imageUrl: 'https://images.unsplash.com/photo-1529692236671-f1a5c5a5dc4b?auto=format&fit=crop&w=1400&q=80',
+    description: 'Chef y cocina profesional preparando un plato con estilo.',
+    feature: 'Plantilla culinaria con especialidades, horarios y experiencia en cocina.',
+  },
+  {
+    id: 'rest-ambar',
+    name: 'Ámbar Restaurante',
+    category: 'restaurantes',
+    imageUrl: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1400&q=80',
+    description: 'Ambiente de restaurante moderno con mesas listas para invitados.',
+    feature: 'Experiencia visual de restaurante con reservas, ubicación y testimonios.',
   },
 ];

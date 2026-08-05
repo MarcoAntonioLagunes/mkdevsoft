@@ -1,25 +1,85 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { SectionEyebrow } from '@/components/ui/section-eyebrow';
-import { TemplateCard } from '@/components/home/templates/TemplateCard';
-import { TEMPLATE_CATEGORIES, templates } from '@/data/templates';
+import { templates, type Template, type TemplateCategory } from '@/data/templates';
+
+type FilterId = 'todas' | TemplateCategory;
+
+const CATEGORIES: { id: FilterId; label: string }[] = [
+  { id: 'todas', label: 'Todas' },
+  { id: 'corporativo', label: 'Corporativo' },
+  { id: 'ecommerce', label: 'E-commerce' },
+  { id: 'portafolio', label: 'Portafolio' },
+  { id: 'landing', label: 'Landing de servicios' },
+  { id: 'restaurantes', label: 'Restaurantes' },
+];
+
+const CATEGORY_LABELS: Record<TemplateCategory, string> = {
+  corporativo: 'Corporativo',
+  ecommerce: 'E-commerce',
+  portafolio: 'Portafolio',
+  landing: 'Landing de servicios',
+  restaurantes: 'Restaurantes',
+};
+
+function TemplateCard({ template }: { template: Template }) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.article
+      className="card template-card"
+      layout
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+      whileHover={reduceMotion ? undefined : { y: -8 }}
+    >
+      <motion.div
+        className="template-card-image"
+        whileHover={reduceMotion ? undefined : { scale: 1.04 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+      >
+        <Image
+          src={template.imageUrl}
+          alt={template.name}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw"
+          className="template-card-image-img"
+          priority={false}
+        />
+        <div className="template-card-image-mask" aria-hidden="true" />
+        <div className="template-card-image-copy">
+          <span className="template-badge">{CATEGORY_LABELS[template.category]}</span>
+          <p className="template-feature">{template.feature}</p>
+        </div>
+      </motion.div>
+      <div className="template-card-copy">
+        <p className="template-name">{template.name}</p>
+        <p className="template-description">{template.description}</p>
+      </div>
+    </motion.article>
+  );
+}
 
 export function Plantillas() {
-  const [activeCategory, setActiveCategory] = useState<'todas' | 'restaurantes' | 'logistica' | 'fintech'>('todas');
-  const filtered = activeCategory === 'todas' ? templates : templates.filter((t) => t.category === activeCategory);
+  const [activeCategory, setActiveCategory] = useState<FilterId>('todas');
+  const filtered = activeCategory === 'todas' ? templates : templates.filter((item) => item.category === activeCategory);
 
   return (
     <section className="section" id="plantillas">
       <div className="container">
         <header className="section-heading">
           <SectionEyebrow>Plantillas</SectionEyebrow>
-          <h2>Catálogo visual para proyectos reales.</h2>
-          <p>Descubre diseños listos para restaurantes, logística y fintech que se ven como producto terminado.</p>
+          <h2>Diseños listos para tu negocio.</h2>
+          <p>Explora plantillas profesionales por categoría y encuentra el punto de partida ideal para tu proyecto.</p>
         </header>
 
         <div className="templates-filter-bar" role="tablist" aria-label="Filtrar plantillas por categoría">
-          {TEMPLATE_CATEGORIES.map((cat) => (
+          {CATEGORIES.map((cat) => (
             <button
               key={cat.id}
               type="button"
@@ -34,9 +94,11 @@ export function Plantillas() {
         </div>
 
         <div className="templates-grid">
-          {filtered.map((template) => (
-            <TemplateCard key={template.id} template={template} />
-          ))}
+          <AnimatePresence mode="popLayout">
+            {filtered.map((template) => (
+              <TemplateCard key={template.id} template={template} />
+            ))}
+          </AnimatePresence>
         </div>
       </div>
     </section>
