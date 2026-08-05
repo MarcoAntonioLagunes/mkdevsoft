@@ -7,6 +7,7 @@ import { TerminalMockup } from '@/components/home/terminal-mockup';
 import { IconCard } from '@/components/ui/icon-card';
 import { Pricing } from '@/components/home/pricing';
 import { QuoteCalculator } from '@/components/home/quote-calculator';
+import { Plantillas } from '@/components/home/plantillas';
 import { Guarantees } from '@/components/home/guarantees';
 import { Comparison } from '@/components/home/comparison';
 import { Faq } from '@/components/home/faq';
@@ -208,6 +209,8 @@ export default function HomePage() {
       <Pricing />
 
       <QuoteCalculator />
+
+      <Plantillas />
 
       <section className="section">
         <div className="container">
