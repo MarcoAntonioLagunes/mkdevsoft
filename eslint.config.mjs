@@ -7,4 +7,18 @@ const compat = new FlatCompat({
 	baseDirectory: dirname(fileURLToPath(import.meta.url)),
 });
 
-export default [...compat.config(nextVitals)];
+const eslintConfig = [
+	{
+		ignores: [
+			'.next/**',
+			'node_modules/**',
+			'out/**',
+			'dist/**',
+			'build/**',
+			'coverage/**',
+		],
+	},
+	...compat.config(nextVitals),
+];
+
+export default eslintConfig;

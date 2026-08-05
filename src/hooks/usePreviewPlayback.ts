@@ -10,6 +10,7 @@ export type PreviewPlaybackState = {
 
 export function usePreviewPlayback<T extends HTMLElement>(ref: RefObject<T | null>): PreviewPlaybackState {
   const reducedMotion = useReducedMotion();
+  const prefersReducedMotion = reducedMotion === true;
   const [isInView, setIsInView] = useState(false);
   const [isPageVisible, setIsPageVisible] = useState(true);
 
@@ -42,12 +43,12 @@ export function usePreviewPlayback<T extends HTMLElement>(ref: RefObject<T | nul
     return () => document.removeEventListener('visibilitychange', handleVisibility);
   }, []);
 
-  const shouldAnimate = isInView && isPageVisible && !reducedMotion;
+  const shouldAnimate = isInView && isPageVisible && !prefersReducedMotion;
 
   return {
     isInView,
     isPageVisible,
-    reducedMotion,
+    reducedMotion: prefersReducedMotion,
     shouldAnimate,
   };
 }

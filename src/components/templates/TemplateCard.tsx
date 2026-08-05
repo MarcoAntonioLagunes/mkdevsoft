@@ -21,37 +21,47 @@ const CATEGORY_LABELS: Record<TemplateCategory, string> = {
 
 export function TemplateCard({ template }: TemplateCardProps) {
   const reduceMotion = useReducedMotion();
+  const prefersReducedMotion = reduceMotion === true;
   const ref = useRef<HTMLDivElement>(null);
   const { shouldAnimate } = usePreviewPlayback(ref);
 
   return (
     <motion.article
-      ref={ref}
       className="card template-card"
       layout
       initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.96 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      whileHover={reduceMotion ? undefined : { y: -10, scale: 1.02 }}
+      whileHover={prefersReducedMotion ? undefined : { y: -10, scale: 1.02 }}
     >
-      <TemplateBrowserFrame>
-        <div className={`template-preview ${shouldAnimate && !reduceMotion ? 'preview-playing' : 'preview-paused'}`}>
-          <TemplatePreview template={template} shouldAnimate={shouldAnimate} reducedMotion={reduceMotion} />
-        </div>
-      </TemplateBrowserFrame>
+      <div ref={ref}>
+        <TemplateBrowserFrame>
+          <div
+            className={`template-preview ${
+              shouldAnimate && !prefersReducedMotion ? 'preview-playing' : 'preview-paused'
+            }`}
+          >
+            <TemplatePreview
+              template={template}
+              shouldAnimate={shouldAnimate}
+              reducedMotion={prefersReducedMotion}
+            />
+          </div>
+        </TemplateBrowserFrame>
 
-      <div className="template-card-copy">
-        <span className="template-category">{CATEGORY_LABELS[template.category]}</span>
-        <p className="template-name">{template.name}</p>
-        <p className="template-description">{template.description}</p>
-        <div className="template-card-actions">
-          <button type="button" className="template-button template-button--ghost">
-            Vista previa
-          </button>
-          <button type="button" className="template-button template-button--solid">
-            Solicitar este diseño
-          </button>
+        <div className="template-card-copy">
+          <span className="template-category">{CATEGORY_LABELS[template.category]}</span>
+          <p className="template-name">{template.name}</p>
+          <p className="template-description">{template.description}</p>
+          <div className="template-card-actions">
+            <button type="button" className="template-button template-button--ghost">
+              Vista previa
+            </button>
+            <button type="button" className="template-button template-button--solid">
+              Solicitar este diseño
+            </button>
+          </div>
         </div>
       </div>
     </motion.article>
