@@ -36,9 +36,9 @@
 }
 
 .logoChip {
-	width: 48px;
+	width: auto;
 	height: 48px;
-	padding: 6px;
+	padding: 6px 10px;
 	border-radius: 12px;
 	border: 1px solid rgba(255, 255, 255, 0.09);
 	background: rgba(255, 255, 255, 0.04);
@@ -135,7 +135,7 @@
 
 @media (max-width: 540px) {
 	.logoChip {
-		width: 42px;
+		width: auto;
 		height: 42px;
 	}
 

@@ -42,7 +42,7 @@
 }
 
 .brandMark {
-  width: 42px;
+  width: auto;
   height: 42px;
   flex: 0 0 auto;
 }

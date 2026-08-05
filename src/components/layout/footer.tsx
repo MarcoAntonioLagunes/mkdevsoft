@@ -12,7 +12,7 @@ export function Footer() {
         <div className={styles.topBar}>
           <Link href="/" className={styles.brand} aria-label="MKDevSoft inicio">
             <span className={styles.logoChip}>
-              <Image src="/og/mkdevsoft-icon-square-512.png" alt="" aria-hidden="true" width={48} height={48} priority />
+              <Image src="/brand/mkdevsoft-icon.png" alt="" aria-hidden="true" width={135} height={48} priority />
             </span>
             <span className={styles.wordGroup}>
               <Image src="/brand/wordmark-dark.svg" alt="MKDevSoft" width={196} height={36} priority />

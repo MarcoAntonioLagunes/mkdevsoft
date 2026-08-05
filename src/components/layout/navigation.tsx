@@ -45,7 +45,7 @@ export function Navigation() {
     <header className={styles.nav} data-scrolled={scrolled}>
       <div className={styles.inner}>
         <Link href="/" className={styles.brand} aria-label={company.name} onClick={() => setOpen(false)}>
-          <Image className={styles.brandMark} src="/og/mkdevsoft-icon-square-512.png" alt="" aria-hidden="true" width={42} height={42} priority />
+          <Image className={styles.brandMark} src="/brand/mkdevsoft-icon.png" alt="" aria-hidden="true" width={118} height={42} priority />
           <span className={styles.brandText}>
             <Image className={styles.wordmark} src="/brand/wordmark-dark.svg" alt="MKDevSoft" width={196} height={36} priority />
             <span className={styles.brandTag}>Ingeniería y desarrollo de software</span>
