@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { PageHeader } from '@/components/ui/page-header';
 import { ContactForm } from '@/components/contact/contact-form';
 import { company } from '@/data/company';
@@ -30,7 +31,9 @@ export default function ContactoPage() {
       <div className="container">
         <PageHeader eyebrow="Contacto" title="Cuéntanos tu proyecto" lead="Completa los datos y te responderemos con una revisión inicial del alcance y próximos pasos." />
         <div className="meta-grid">
-          <ContactForm />
+          <Suspense fallback={<div className="card" style={{ minHeight: 420 }} />}>
+            <ContactForm />
+          </Suspense>
           <section className="card" style={{ padding: '1rem 1.15rem' }}>
             <h3>Contacto alternativo</h3>
             <p className="legal-note">Los enlaces definitivos deben configurarse desde src/data/company.ts cuando existan datos oficiales.</p>

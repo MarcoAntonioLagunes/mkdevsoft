@@ -879,8 +879,596 @@ p { margin: 0; }
   50% { transform: scale(1.08); }
 }
 
+.hero-mockup-split {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  background: #0b0d1a;
+  isolation: isolate;
+}
+.hero-mockup-split--photo-left .hero-mockup-split-row {
+  flex-direction: row-reverse;
+}
+.hero-mockup-split-row {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.hero-mockup-split-text {
+  flex: 1 1 54%;
+  min-width: 0;
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+}
+.hero-mockup-split-text .hero-mockup-headline {
+  font-size: 1rem;
+  line-height: 1.3;
+  max-width: none;
+}
+.hero-mockup-split-text .hero-mockup-subheadline {
+  max-width: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hero-mockup-split-photo {
+  flex: 1 1 46%;
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+}
+.hero-mockup-split-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 8, 20, 0.15);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-mockup-photo { animation: none; }
+}
+
+/* Ecommerce mockup */
+.ecom-mockup {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  background: #0b0d1a;
+  overflow: hidden;
+  isolation: isolate;
+}
+.ecom-mockup-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  padding: 0.7rem 0.8rem;
+}
+.ecom-mockup-logo {
+  flex: 0 1 auto;
+  min-width: 0;
+  font-family: var(--font-sora), Sora, sans-serif;
+  font-weight: 700;
+  font-size: 0.74rem;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ecom-mockup-navlinks {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: center;
+  gap: 0.55rem;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.6rem;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.ecom-mockup-navcart {
+  flex: 0 0 auto;
+  font-size: 0.9rem;
+}
+.ecom-mockup-banner {
+  position: relative;
+  width: 100%;
+  height: 84px;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+.ecom-mockup-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 8, 20, 0.32);
+}
+.ecom-mockup-banner-tag {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.55rem;
+  max-width: calc(100% - 1.5rem);
+  background: var(--mockup-accent, var(--accent));
+  color: #fff;
+  font-size: 0.64rem;
+  font-weight: 700;
+  padding: 0.26rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ecom-mockup-products {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0.55rem 0.65rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+.ecom-mockup-product {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.45rem;
+}
+.ecom-mockup-product-swatch {
+  flex: 1 1 auto;
+  min-height: 22px;
+  border-radius: 0.35rem;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--mockup-accent, var(--accent)) 45%, #14172c) 0%, #14172c 100%);
+}
+.ecom-mockup-product-name {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ecom-mockup-product-price {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--mockup-accent, var(--accent-2));
+}
+.ecom-mockup-products--v1 {
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+.ecom-mockup-products--v1 .ecom-mockup-product:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+}
+.ecom-mockup-products--v1 .ecom-mockup-product:nth-child(1) .ecom-mockup-product-swatch {
+  min-height: 40px;
+}
+.ecom-mockup-products--v1 .ecom-mockup-product:nth-child(2) { grid-column: 2; grid-row: 1; }
+.ecom-mockup-products--v1 .ecom-mockup-product:nth-child(3) { grid-column: 2; grid-row: 2; }
+.ecom-mockup-products--v1 .ecom-mockup-product:nth-child(4) { grid-column: 2; grid-row: 3; }
+.ecom-mockup-products--v2 {
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(0, 1fr);
+}
+.ecom-mockup-products--v2 .ecom-mockup-product {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ecom-mockup-products--v2 .ecom-mockup-product-swatch {
+  flex: 0 0 26px;
+  height: 26px;
+  min-height: 0;
+}
+.ecom-mockup-products--v2 .ecom-mockup-product-name {
+  flex: 1 1 auto;
+}
+.ecom-mockup-products--v2 .ecom-mockup-product-price {
+  flex: 0 0 auto;
+}
+
+/* Portfolio mockup */
+.folio-mockup {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  background: #0b0d1a;
+  overflow: hidden;
+  isolation: isolate;
+}
+.folio-mockup-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 0.8rem;
+}
+.folio-mockup-logo {
+  flex: 0 0 auto;
+  font-family: var(--font-sora), Sora, sans-serif;
+  font-weight: 700;
+  font-size: 0.74rem;
+  color: #fff;
+}
+.folio-mockup-navlinks {
+  display: flex;
+  gap: 0.65rem;
+  min-width: 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.62rem;
+  white-space: nowrap;
+}
+.folio-mockup-gallery {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  gap: 0.35rem;
+  padding: 0 0.5rem 0.5rem;
+}
+.folio-mockup-tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.4rem;
+  min-height: 0;
+}
+.folio-mockup-tile-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 8, 20, 0.4);
+}
+.folio-mockup-tile-title {
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.4rem;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.folio-mockup-gallery--v0 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.folio-mockup-gallery--v1 {
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.folio-mockup-gallery--v1 .folio-mockup-tile:nth-child(1) {
+  grid-row: 1 / span 2;
+}
+.folio-mockup-gallery--v2 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: 1.6fr 1fr;
+}
+.folio-mockup-gallery--v2 .folio-mockup-tile:nth-child(1) {
+  grid-column: 1 / span 3;
+  grid-row: 1;
+}
+
+/* App mockup */
+.app-mockup {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 1rem 0;
+}
+.app-mockup-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.app-mockup-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--mockup-accent, var(--accent));
+  opacity: 0.55;
+}
+.app-mockup-phone {
+  position: relative;
+  z-index: 1;
+  width: 138px;
+  height: 268px;
+  background: #f7f6fb;
+  border-radius: 1.4rem;
+  border: 3px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.38);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.app-mockup-notch {
+  width: 42px;
+  height: 14px;
+  background: #14111f;
+  border-radius: 0 0 8px 8px;
+  margin: 0 auto;
+  flex: 0 0 auto;
+}
+.app-mockup-header {
+  padding: 0.5rem 0.7rem 0.3rem;
+  flex: 0 0 auto;
+}
+.app-mockup-app-name {
+  font-family: var(--font-sora), Sora, sans-serif;
+  font-weight: 700;
+  font-size: 0.68rem;
+  color: #1a1a2e;
+}
+.app-mockup-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0.2rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+  overflow: hidden;
+}
+.app-mockup-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  min-width: 0;
+  background: #edecf6;
+  border-radius: 0.5rem;
+  padding: 0.34rem 0.5rem;
+}
+.app-mockup-list-label {
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.app-mockup-list-meta {
+  font-size: 0.54rem;
+  font-weight: 700;
+  color: var(--mockup-accent, var(--accent));
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.app-mockup-bottomnav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 0.6rem;
+  border-top: 1px solid #ece9f5;
+  flex: 0 0 auto;
+}
+.app-mockup-bottomnav span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d8d6e8;
+}
+.app-mockup-bottomnav span:first-child {
+  background: var(--mockup-accent, var(--accent));
+}
+
+/* Dashboard mockup */
+.dash-mockup {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  background: #0b0d1a;
+  overflow: hidden;
+  isolation: isolate;
+}
+.dash-mockup-sidebar {
+  flex: 0 0 42px;
+  background: #12142a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 0;
+}
+.dash-mockup-sidebar-logo {
+  width: 20px;
+  height: 20px;
+  border-radius: 0.4rem;
+  background: var(--mockup-accent, var(--accent));
+  flex: 0 0 auto;
+}
+.dash-mockup-sidebar-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.dash-mockup-sidebar-icons span {
+  width: 16px;
+  height: 16px;
+  border-radius: 0.3rem;
+  background: rgba(255, 255, 255, 0.1);
+  display: block;
+}
+.dash-mockup-sidebar-icons span:first-child {
+  background: rgba(255, 255, 255, 0.28);
+}
+.dash-mockup-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem 0.8rem;
+  gap: 0.55rem;
+}
+.dash-mockup-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-width: 0;
+}
+.dash-mockup-title {
+  font-family: var(--font-sora), Sora, sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+.dash-mockup-tabs {
+  display: flex;
+  flex: 0 1 auto;
+  gap: 0.55rem;
+  min-width: 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.6rem;
+  white-space: nowrap;
+}
+.dash-mockup-metrics {
+  display: flex;
+  gap: 0.45rem;
+}
+.dash-mockup-metric {
+  flex: 1 1 0;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  overflow: hidden;
+}
+.dash-mockup-metric-value {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dash-mockup-metric-label {
+  font-size: 0.56rem;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dash-mockup-chart {
+  flex: 1 1 auto;
+  min-height: 0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+}
+.dash-mockup-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.3rem;
+  width: 100%;
+}
+.dash-mockup-bar {
+  flex: 1 1 0;
+  background: linear-gradient(180deg, var(--mockup-accent, var(--accent)), color-mix(in srgb, var(--mockup-accent, var(--accent)) 35%, transparent));
+  border-radius: 0.2rem 0.2rem 0 0;
+  min-height: 4px;
+}
+.dash-mockup-line {
+  width: 100%;
+  height: 100%;
+}
+.dash-mockup-line-fill {
+  fill: color-mix(in srgb, var(--mockup-accent, var(--accent)) 22%, transparent);
+  stroke: none;
+}
+.dash-mockup-line-stroke {
+  fill: none;
+  stroke: var(--mockup-accent, var(--accent));
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Preview modal */
+.template-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 8, 20, 0.72);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 1000;
+}
+.template-modal-panel {
+  position: relative;
+  width: min(720px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(139, 92, 246, 0.24);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+}
+.template-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(6, 8, 20, 0.55);
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--duration-fast) ease;
+}
+.template-modal-close:hover {
+  background: rgba(6, 8, 20, 0.85);
+}
+.template-modal-panel .browser-preview,
+.template-modal-panel .hero-mockup,
+.template-modal-panel .hero-mockup-split,
+.template-modal-panel .hero-mockup-content,
+.template-modal-panel .ecom-mockup,
+.template-modal-panel .folio-mockup,
+.template-modal-panel .app-mockup,
+.template-modal-panel .dash-mockup {
+  min-height: 460px;
 }
 
 .template-card-copy {

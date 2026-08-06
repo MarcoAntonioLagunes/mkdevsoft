@@ -3,7 +3,9 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useSearchParams } from 'next/navigation';
 import { z } from 'zod';
+import { templates } from '@/data/templates';
 import styles from './contact-form.module.css';
 
 const contactSchema = z.object({
@@ -29,10 +31,27 @@ export function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [statusMessage, setStatusMessage] = useState('');
   const [cooldown, setCooldown] = useState(false);
+  const searchParams = useSearchParams();
+  const requestedTemplate = useMemo(() => {
+    const templateId = searchParams.get('plantilla');
+    return templateId ? templates.find((template) => template.id === templateId) : undefined;
+  }, [searchParams]);
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { name: '', company: '', email: '', phone: '', solutionType: '', projectStatus: '', goal: '', budget: '', timeline: '', description: '', honeypot: '' },
+    defaultValues: {
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      solutionType: requestedTemplate ? 'Plataforma web' : '',
+      projectStatus: '',
+      goal: '',
+      budget: '',
+      timeline: '',
+      description: requestedTemplate ? `Me interesa: ${requestedTemplate.name}. ` : '',
+      honeypot: '',
+    },
   });
 
   useEffect(() => {

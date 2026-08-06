@@ -34,25 +34,93 @@ export function TemplateHeroMockup({ template, shouldAnimate, reducedMotion }: T
     navItems,
     stats,
     accentColor,
+    layoutVariant,
   } = template;
 
   const isPlaying = shouldAnimate && !reducedMotion;
   const isRevealed = shouldAnimate || reducedMotion;
+  const accentStyle = { '--mockup-accent': `var(${accentColor})` } as CSSProperties;
+
+  const nav = (
+    <motion.nav className="hero-mockup-nav" variants={itemVariants}>
+      <span className="hero-mockup-logo">{shortName}</span>
+      <div className="hero-mockup-navlinks">
+        {navItems.map((item) => (
+          <span key={item}>{item}</span>
+        ))}
+      </div>
+      <span className="hero-mockup-navcta">{ctaPrimary}</span>
+    </motion.nav>
+  );
+
+  const statsRow = (
+    <motion.div className="hero-mockup-stats" variants={itemVariants}>
+      {stats.map((stat) => (
+        <div key={stat.label} className="hero-mockup-stat">
+          <span className="hero-mockup-stat-icon" aria-hidden="true">
+            {stat.icon}
+          </span>
+          <span className="hero-mockup-stat-label">{stat.label}</span>
+        </div>
+      ))}
+    </motion.div>
+  );
+
+  const photo = (
+    <Image
+      src={imageUrl}
+      alt={`Fondo de la plantilla ${name}`}
+      fill
+      loading="lazy"
+      sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 380px"
+      className="hero-mockup-photo"
+    />
+  );
+
+  if (layoutVariant === 1 || layoutVariant === 2) {
+    const photoSide = layoutVariant === 1 ? 'right' : 'left';
+    return (
+      <div
+        className={`hero-mockup-split hero-mockup-split--photo-${photoSide} ${isPlaying ? 'hero-mockup-playing' : 'hero-mockup-paused'}`}
+        style={accentStyle}
+      >
+        <motion.div initial="hidden" animate={isRevealed ? 'visible' : 'hidden'} variants={containerVariants}>
+          {nav}
+        </motion.div>
+        <div className="hero-mockup-split-row">
+          <motion.div
+            className="hero-mockup-split-text"
+            initial="hidden"
+            animate={isRevealed ? 'visible' : 'hidden'}
+            variants={containerVariants}
+          >
+            <motion.p className="hero-mockup-headline" variants={itemVariants}>
+              {headlineStart} <span className="hero-mockup-highlight">{headlineHighlight}</span>
+            </motion.p>
+            <motion.p className="hero-mockup-subheadline" variants={itemVariants}>
+              {subheadline}
+            </motion.p>
+            <motion.div className="hero-mockup-actions" variants={itemVariants}>
+              <span className="hero-mockup-btn hero-mockup-btn--primary">{ctaPrimary}</span>
+              <span className="hero-mockup-btn hero-mockup-btn--secondary">{ctaSecondary}</span>
+            </motion.div>
+          </motion.div>
+          <div className="hero-mockup-split-photo">
+            {photo}
+            <div className="hero-mockup-split-photo-overlay" />
+          </div>
+        </div>
+        <motion.div initial="hidden" animate={isRevealed ? 'visible' : 'hidden'} variants={containerVariants}>
+          {statsRow}
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
-    <div
-      className={`hero-mockup ${isPlaying ? 'hero-mockup-playing' : 'hero-mockup-paused'}`}
-      style={{ '--mockup-accent': `var(${accentColor})` } as CSSProperties}
-    >
+    <div className={`hero-mockup ${isPlaying ? 'hero-mockup-playing' : 'hero-mockup-paused'}`} style={accentStyle}>
       <div className="hero-mockup-bg">
-        <Image
-          src={imageUrl}
-          alt={`Fondo de la plantilla ${name}`}
-          fill
-          loading="lazy"
-          sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 380px"
-          className="hero-mockup-photo"
-        />
+        {photo}
         <div className="hero-mockup-overlay" />
       </div>
 
@@ -62,15 +130,7 @@ export function TemplateHeroMockup({ template, shouldAnimate, reducedMotion }: T
         animate={isRevealed ? 'visible' : 'hidden'}
         variants={containerVariants}
       >
-        <motion.nav className="hero-mockup-nav" variants={itemVariants}>
-          <span className="hero-mockup-logo">{shortName}</span>
-          <div className="hero-mockup-navlinks">
-            {navItems.map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
-          <span className="hero-mockup-navcta">{ctaPrimary}</span>
-        </motion.nav>
+        {nav}
 
         <div className="hero-mockup-body">
           <motion.p className="hero-mockup-headline" variants={itemVariants}>
@@ -85,16 +145,7 @@ export function TemplateHeroMockup({ template, shouldAnimate, reducedMotion }: T
           </motion.div>
         </div>
 
-        <motion.div className="hero-mockup-stats" variants={itemVariants}>
-          {stats.map((stat) => (
-            <div key={stat.label} className="hero-mockup-stat">
-              <span className="hero-mockup-stat-icon" aria-hidden="true">
-                {stat.icon}
-              </span>
-              <span className="hero-mockup-stat-label">{stat.label}</span>
-            </div>
-          ))}
-        </motion.div>
+        {statsRow}
       </motion.div>
     </div>
   );
