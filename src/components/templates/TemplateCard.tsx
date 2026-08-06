@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
 import { TemplateBrowserFrame } from './TemplateBrowserFrame';
-import { TemplatePreview } from './TemplatePreview';
+import { TemplateHeroMockup } from './TemplateHeroMockup';
 import { usePreviewPlayback } from '@/hooks/usePreviewPlayback';
 import type { Template, TemplateCategory } from '@/data/templates';
 
@@ -37,17 +37,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
     >
       <div ref={ref}>
         <TemplateBrowserFrame>
-          <div
-            className={`template-preview ${
-              shouldAnimate && !prefersReducedMotion ? 'preview-playing' : 'preview-paused'
-            }`}
-          >
-            <TemplatePreview
-              template={template}
-              shouldAnimate={shouldAnimate}
-              reducedMotion={prefersReducedMotion}
-            />
-          </div>
+          <TemplateHeroMockup template={template} shouldAnimate={shouldAnimate} reducedMotion={prefersReducedMotion} />
         </TemplateBrowserFrame>
 
         <div className="template-card-copy">
