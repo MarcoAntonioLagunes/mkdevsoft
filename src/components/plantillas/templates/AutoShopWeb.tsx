@@ -1,3 +1,6 @@
+import tallerHero from '../../../../public/plantillas/taller-hero.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
+
 type AutoShopWebProps = {
   isPlaying: boolean;
 };
@@ -7,41 +10,49 @@ export function AutoShopWeb({ isPlaying }: AutoShopWebProps) {
     <div className={`pv-web-shell${isPlaying ? ' is-playing' : ''}`}>
       <nav className="pv-web-nav">
         <span className="pv-web-logo">Taller Roble</span>
-        <div className="pv-web-links">
-          <span>Servicios</span>
-          <span>Cotizar</span>
-          <span>Contacto</span>
+        <div className="pv-web-nav-right">
+          <div className="pv-web-links">
+            <span>Servicios</span>
+            <span>Cotizar</span>
+            <span>Contacto</span>
+          </div>
+          <span className="pv-web-nav-cta">Agendar</span>
         </div>
       </nav>
 
       <div className="pv-shared-hero">
         <div className="pv-shared-hero-bg" />
+        <TemplateHeroPhoto src={tallerHero} alt="Manos de mecánico trabajando en el motor de un automóvil" />
         <div className="pv-shared-hero-overlay" />
+        <span className="pv-hero-chip">🔧 +15 años de experiencia</span>
+        <svg width="46" height="46" viewBox="0 0 60 60" aria-hidden="true" style={{ position: 'absolute', bottom: '0.8rem', right: '0.8rem', zIndex: 1 }}>
+          <g className="pv-shared-gear">
+            <circle cx="30" cy="30" r="10" fill="none" stroke="var(--mockup-accent)" strokeWidth="3" />
+            {Array.from({ length: 8 }).map((_, index) => {
+              const angle = (index * 360) / 8;
+              return (
+                <rect
+                  key={index}
+                  x="28"
+                  y="4"
+                  width="4"
+                  height="8"
+                  fill="var(--mockup-accent)"
+                  transform={`rotate(${angle} 30 30)`}
+                />
+              );
+            })}
+          </g>
+        </svg>
         <div className="pv-shared-hero-content">
-          <svg width="46" height="46" viewBox="0 0 60 60" aria-hidden="true" style={{ position: 'absolute', top: '0.8rem', right: '0.8rem' }}>
-            <g className="pv-shared-gear">
-              <circle cx="30" cy="30" r="10" fill="none" stroke="var(--mockup-accent)" strokeWidth="3" />
-              {Array.from({ length: 8 }).map((_, index) => {
-                const angle = (index * 360) / 8;
-                return (
-                  <rect
-                    key={index}
-                    x="28"
-                    y="4"
-                    width="4"
-                    height="8"
-                    fill="var(--mockup-accent)"
-                    transform={`rotate(${angle} 30 30)`}
-                  />
-                );
-              })}
-            </g>
-          </svg>
           <p className="pv-shared-kicker">Servicio automotriz</p>
           <h3 className="pv-shared-headline">
             Tu auto en <span>buenas manos</span>
           </h3>
-          <span className="pv-shared-cta">Agendar servicio</span>
+          <div className="pv-hero-actions">
+            <span className="pv-shared-cta">Agendar servicio</span>
+            <span className="pv-shared-cta--secondary">Ver servicios</span>
+          </div>
         </div>
       </div>
 

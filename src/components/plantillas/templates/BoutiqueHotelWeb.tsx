@@ -1,3 +1,6 @@
+import hotelHero from '../../../../public/plantillas/hotel-hero.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
+
 const ROOMS = [
   { name: 'Suite Vista Mar', meta: '$3,200' },
   { name: 'Junior Suite', meta: '$2,100' },
@@ -14,23 +17,30 @@ export function BoutiqueHotelWeb({ isPlaying }: BoutiqueHotelWebProps) {
     <div className={`pv-web-shell${isPlaying ? ' is-playing' : ''}`}>
       <nav className="pv-web-nav">
         <span className="pv-web-logo">Hotel Marea</span>
-        <div className="pv-web-links">
-          <span>Habitaciones</span>
-          <span>Amenidades</span>
-          <span>Reservas</span>
+        <div className="pv-web-nav-right">
+          <div className="pv-web-links">
+            <span>Habitaciones</span>
+            <span>Amenidades</span>
+            <span>Reservas</span>
+          </div>
+          <span className="pv-web-nav-cta">Reservar</span>
         </div>
       </nav>
 
       <div className="pv-shared-hero">
         <div className="pv-shared-hero-bg" />
+        <TemplateHeroPhoto src={hotelHero} alt="Alberca de hotel boutique con camastros junto al mar al atardecer" />
         <div className="pv-shared-hero-overlay" />
+        <span className="pv-hero-chip">🌊 Vista al mar garantizada</span>
         <div className="pv-shared-hero-content">
-          <span className="pv-shared-badge">Disponible hoy</span>
           <p className="pv-shared-kicker">Hospitalidad boutique</p>
           <h3 className="pv-shared-headline">
             Descansa frente al <span>mar</span>
           </h3>
-          <span className="pv-shared-cta">Reservar habitación</span>
+          <div className="pv-hero-actions">
+            <span className="pv-shared-cta">Reservar habitación</span>
+            <span className="pv-shared-cta--secondary">Ver amenidades</span>
+          </div>
         </div>
       </div>
 

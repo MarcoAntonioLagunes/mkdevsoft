@@ -1,4 +1,6 @@
 import type { CSSProperties } from 'react';
+import escuelaBanner from '../../../../public/plantillas/escuela-banner.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
 
 const GRADE_BARS = [72, 85, 68, 91, 78, 88];
 
@@ -20,19 +22,28 @@ export function SchoolDashboard({ isPlaying }: SchoolDashboardProps) {
       </div>
 
       <div className="pv-app-main">
+        <div className="pv-app-photo-strip" style={{ margin: '-0.85rem -0.9rem 0' }}>
+          <TemplateHeroPhoto src={escuelaBanner} alt="Salón de clases con globos terráqueos y libros bajo luz natural" sizes="360px" />
+          <div className="pv-app-photo-strip-overlay" />
+          <span className="pv-hero-chip">🎓 Inscripciones abiertas</span>
+        </div>
+
         <div className="pv-app-topbar">
           <span className="pv-app-title">Colegio Aurora</span>
           <span className="pv-shared-badge">Ciclo 2026</span>
         </div>
 
-        <div className="pv-app-metrics">
-          <div className="pv-app-metric">
-            <span className="pv-app-metric-value">312</span>
-            <span className="pv-app-metric-label">Alumnos</span>
+        <div className="pv-stat-row">
+          <div className="pv-stat-card">
+            <span className="pv-stat-value" style={{ '--count-target': 312 } as CSSProperties} />
+            <span className="pv-stat-label">Alumnos</span>
           </div>
-          <div className="pv-app-metric">
-            <span className="pv-app-metric-value">96%</span>
-            <span className="pv-app-metric-label">Asistencia</span>
+          <div className="pv-stat-card">
+            <span style={{ display: 'inline-flex' }}>
+              <span className="pv-stat-value" style={{ '--count-target': 96 } as CSSProperties} />
+              <span className="pv-stat-suffix">%</span>
+            </span>
+            <span className="pv-stat-label">Asistencia</span>
           </div>
         </div>
 

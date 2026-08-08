@@ -1,3 +1,6 @@
+import viajesHero from '../../../../public/plantillas/viajes-hero.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
+
 const DESTINATIONS = [
   { name: 'Costa Esmeralda', meta: '7 días' },
   { name: 'Sierra Alta', meta: '5 días' },
@@ -14,14 +17,20 @@ export function TravelAgencyWeb({ isPlaying }: TravelAgencyWebProps) {
     <div className={`pv-web-shell${isPlaying ? ' is-playing' : ''}`}>
       <nav className="pv-web-nav">
         <span className="pv-web-logo">Rutas Azules</span>
-        <div className="pv-web-links">
-          <span>Destinos</span>
-          <span>Paquetes</span>
-          <span>Contacto</span>
+        <div className="pv-web-nav-right">
+          <div className="pv-web-links">
+            <span>Destinos</span>
+            <span>Paquetes</span>
+            <span>Contacto</span>
+          </div>
+          <span className="pv-web-nav-cta">Cotizar viaje</span>
         </div>
       </nav>
 
       <div className="pv-shared-map">
+        <TemplateHeroPhoto src={viajesHero} alt="Globo terráqueo y maleta de viaje sobre fondo oscuro" sizes="360px" />
+        <div className="pv-shared-hero-overlay" />
+        <span className="pv-hero-chip">✈️ +50 destinos disponibles</span>
         <svg className="pv-shared-route" viewBox="0 0 200 140" preserveAspectRatio="none" aria-hidden="true">
           <path className="pv-shared-route-path" d="M20,110 C60,20 140,120 180,30" />
         </svg>

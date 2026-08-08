@@ -1,3 +1,7 @@
+import type { CSSProperties } from 'react';
+import spaBanner from '../../../../public/plantillas/spa-banner.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
+
 const BOOKINGS = [
   { name: 'Masaje relajante', meta: '10:00' },
   { name: 'Facial hidratante', meta: '11:30' },
@@ -23,6 +27,12 @@ export function SpaDashboard({ isPlaying }: SpaDashboardProps) {
       </div>
 
       <div className="pv-app-main">
+        <div className="pv-app-photo-strip" style={{ margin: '-0.85rem -0.9rem 0' }}>
+          <TemplateHeroPhoto src={spaBanner} alt="Vela encendida junto a toallas dobladas en ambiente de spa" sizes="360px" />
+          <div className="pv-app-photo-strip-overlay" />
+          <span className="pv-hero-chip">🕯️ Ambiente de relajación</span>
+        </div>
+
         <div className="pv-app-topbar">
           <span className="pv-app-title">Spa Serena</span>
           <span className="pv-shared-badge">6 cabinas activas</span>
@@ -30,7 +40,10 @@ export function SpaDashboard({ isPlaying }: SpaDashboardProps) {
 
         <div className="pv-app-panels" style={{ alignItems: 'center' }}>
           <div style={{ flex: 1 }}>
-            <span className="pv-app-metric-value">78%</span>
+            <span style={{ display: 'inline-flex' }}>
+              <span className="pv-stat-value" style={{ '--count-target': 78 } as CSSProperties} />
+              <span className="pv-stat-suffix">%</span>
+            </span>
             <span className="pv-app-metric-label" style={{ display: 'block' }}>
               Ocupación de cabinas
             </span>

@@ -1,3 +1,6 @@
+import restauranteHero from '../../../../public/plantillas/restaurante-hero.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
+
 const MENU_ITEMS = [
   { name: 'Risotto de hongos', price: '$185' },
   { name: 'Salmón a las brasas', price: '$240' },
@@ -11,34 +14,42 @@ type RestaurantWebProps = {
 
 export function RestaurantWeb({ isPlaying }: RestaurantWebProps) {
   return (
-    <div className={`pv-rest${isPlaying ? ' is-playing' : ''}`}>
-      <nav className="pv-rest-nav">
-        <span className="pv-rest-logo">Casa Olivo</span>
-        <div className="pv-rest-links">
-          <span>Menú</span>
-          <span>Reservas</span>
-          <span>Nosotros</span>
+    <div className={`pv-web-shell${isPlaying ? ' is-playing' : ''}`}>
+      <nav className="pv-web-nav">
+        <span className="pv-web-logo">Casa Olivo</span>
+        <div className="pv-web-nav-right">
+          <div className="pv-web-links">
+            <span>Menú</span>
+            <span>Reservas</span>
+            <span>Nosotros</span>
+          </div>
+          <span className="pv-web-nav-cta">Reservar mesa</span>
         </div>
       </nav>
 
-      <div className="pv-rest-hero">
-        <div className="pv-rest-hero-bg" />
-        <div className="pv-rest-hero-overlay" />
-        <div className="pv-rest-hero-content">
-          <p className="pv-rest-kicker">Cocina de autor</p>
-          <h3 className="pv-rest-headline">
+      <div className="pv-shared-hero">
+        <div className="pv-shared-hero-bg" />
+        <TemplateHeroPhoto src={restauranteHero} alt="Mariscos y brochetas a la parrilla servidos sobre tabla de madera" />
+        <div className="pv-shared-hero-overlay" />
+        <span className="pv-hero-chip">🦐 Mariscos frescos del día</span>
+        <div className="pv-shared-hero-content">
+          <p className="pv-shared-kicker">Cocina de autor</p>
+          <h3 className="pv-shared-headline">
             Sabores que <span>enamoran</span>
           </h3>
-          <span className="pv-rest-cta">Reservar mesa</span>
+          <div className="pv-hero-actions">
+            <span className="pv-shared-cta">Reservar mesa</span>
+            <span className="pv-shared-cta--secondary">Ver menú</span>
+          </div>
         </div>
       </div>
 
-      <div className="pv-rest-menu">
-        <div className="pv-rest-menu-track">
+      <div className="pv-shared-list">
+        <div className="pv-shared-list-track">
           {[...MENU_ITEMS, ...MENU_ITEMS].map((item, index) => (
-            <div className="pv-rest-menu-row" key={`${item.name}-${index}`}>
+            <div className="pv-shared-list-row" key={`${item.name}-${index}`}>
               <span>{item.name}</span>
-              <span className="pv-rest-menu-price">{item.price}</span>
+              <span className="pv-shared-list-row-accent">{item.price}</span>
             </div>
           ))}
         </div>

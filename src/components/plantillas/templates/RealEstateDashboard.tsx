@@ -1,3 +1,7 @@
+import type { CSSProperties } from 'react';
+import inmobiliariaBanner from '../../../../public/plantillas/inmobiliaria-banner.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
+
 type RealEstateDashboardProps = {
   isPlaying: boolean;
 };
@@ -16,19 +20,25 @@ export function RealEstateDashboard({ isPlaying }: RealEstateDashboardProps) {
       </div>
 
       <div className="pv-app-main">
+        <div className="pv-app-photo-strip" style={{ margin: '-0.85rem -0.9rem 0' }}>
+          <TemplateHeroPhoto src={inmobiliariaBanner} alt="Villa contemporánea con fachada de cristal y jardín" sizes="360px" />
+          <div className="pv-app-photo-strip-overlay" />
+          <span className="pv-hero-chip">🏠 Asesoría personalizada</span>
+        </div>
+
         <div className="pv-app-topbar">
           <span className="pv-app-title">Llave Maestra</span>
           <span className="pv-shared-badge">Nueva propiedad</span>
         </div>
 
-        <div className="pv-app-metrics">
-          <div className="pv-app-metric">
-            <span className="pv-app-metric-value">36</span>
-            <span className="pv-app-metric-label">Propiedades activas</span>
+        <div className="pv-stat-row">
+          <div className="pv-stat-card">
+            <span className="pv-stat-value" style={{ '--count-target': 36 } as CSSProperties} />
+            <span className="pv-stat-label">Propiedades activas</span>
           </div>
-          <div className="pv-app-metric">
-            <span className="pv-app-metric-value">12</span>
-            <span className="pv-app-metric-label">Citas esta semana</span>
+          <div className="pv-stat-card">
+            <span className="pv-stat-value" style={{ '--count-target': 12 } as CSSProperties} />
+            <span className="pv-stat-label">Citas esta semana</span>
           </div>
         </div>
 

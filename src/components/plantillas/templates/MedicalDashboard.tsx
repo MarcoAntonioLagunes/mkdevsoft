@@ -1,4 +1,6 @@
 import type { CSSProperties } from 'react';
+import medicoBanner from '../../../../public/plantillas/medico-banner.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
 
 const CHECKINS = [
   { label: 'Registrado', delay: '0s' },
@@ -24,6 +26,12 @@ export function MedicalDashboard({ isPlaying }: MedicalDashboardProps) {
       </div>
 
       <div className="pv-app-main">
+        <div className="pv-app-photo-strip" style={{ margin: '-0.85rem -0.9rem 0' }}>
+          <TemplateHeroPhoto src={medicoBanner} alt="Estetoscopio y laptop sobre escritorio de consultorio médico" sizes="360px" />
+          <div className="pv-app-photo-strip-overlay" />
+          <span className="pv-hero-chip">🩺 Citas el mismo día</span>
+        </div>
+
         <div className="pv-app-topbar">
           <span className="pv-app-title">Consultorio Vitalis</span>
           <span className="pv-shared-badge">12 pacientes hoy</span>

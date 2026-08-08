@@ -1,3 +1,6 @@
+import logisticaBanner from '../../../../public/plantillas/logistica-banner.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
+
 const SHIPMENTS = [
   { name: 'Envío #4821', meta: 'En ruta' },
   { name: 'Envío #4822', meta: 'Entregado' },
@@ -23,6 +26,12 @@ export function LogisticsDashboard({ isPlaying }: LogisticsDashboardProps) {
       </div>
 
       <div className="pv-app-main">
+        <div className="pv-app-photo-strip" style={{ margin: '-0.85rem -0.9rem 0' }}>
+          <TemplateHeroPhoto src={logisticaBanner} alt="Puerto de contenedores de carga con grúas al atardecer" sizes="360px" />
+          <div className="pv-app-photo-strip-overlay" />
+          <span className="pv-hero-chip">🚚 Rastreo en tiempo real</span>
+        </div>
+
         <div className="pv-app-topbar">
           <span className="pv-app-title">Carga Norte</span>
           <span className="pv-shared-badge">128 envíos activos</span>

@@ -1,4 +1,6 @@
 import type { CSSProperties } from 'react';
+import contableHero from '../../../../public/plantillas/contable-hero.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
 
 const BAR_HEIGHTS = [38, 55, 48, 70, 62, 85];
 const STEPS = [
@@ -16,21 +18,29 @@ export function AccountingFirmWeb({ isPlaying }: AccountingFirmWebProps) {
     <div className={`pv-web-shell${isPlaying ? ' is-playing' : ''}`}>
       <nav className="pv-web-nav">
         <span className="pv-web-logo">Contadores Sur</span>
-        <div className="pv-web-links">
-          <span>Servicios</span>
-          <span>Clientes</span>
-          <span>Contacto</span>
+        <div className="pv-web-nav-right">
+          <div className="pv-web-links">
+            <span>Servicios</span>
+            <span>Clientes</span>
+            <span>Contacto</span>
+          </div>
+          <span className="pv-web-nav-cta">Cotizar</span>
         </div>
       </nav>
 
       <div className="pv-shared-hero" style={{ minHeight: '150px' }}>
         <div className="pv-shared-hero-bg" />
+        <TemplateHeroPhoto src={contableHero} alt="Calculadora y documentos financieros sobre escritorio de oficina" />
         <div className="pv-shared-hero-overlay" />
+        <span className="pv-hero-chip">📊 +300 clientes activos</span>
         <div className="pv-shared-hero-content">
           <p className="pv-shared-kicker">Contabilidad &amp; fiscal</p>
           <h3 className="pv-shared-headline">
             Tus finanzas, <span>en orden</span>
           </h3>
+          <div className="pv-hero-actions">
+            <span className="pv-shared-cta">Agendar asesoría</span>
+          </div>
         </div>
       </div>
 

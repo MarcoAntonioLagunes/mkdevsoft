@@ -1,7 +1,17 @@
+import crossfitThumb from '../../../../public/plantillas/crossfit-thumb.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
+
 const EXERCISES = [
   { label: 'Sentadillas', delay: '0s' },
   { label: 'Burpees', delay: '1.6s' },
   { label: 'Cuerda', delay: '3.2s' },
+];
+
+const NAV_ICONS = [
+  <path key="home" d="M3 10.5 12 4l9 6.5M5 9.5V19h14V9.5" />,
+  <path key="orders" d="M4 7h16l-1.2 11.5a2 2 0 0 1-2 1.5H7.2a2 2 0 0 1-2-1.5L4 7ZM9 7a3 3 0 0 1 6 0" />,
+  <path key="promos" d="m20 10-8.5-8.5a2 2 0 0 0-1.4-.6H5a2 2 0 0 0-2 2v5.1c0 .5.2 1 .6 1.4L12 20.5 20 12.5v-2.5ZM7 7h.01" />,
+  <path key="profile" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21c1.5-3.5 4.5-5.5 8-5.5s6.5 2 8 5.5" />,
 ];
 
 type CrossfitMobileProps = {
@@ -13,7 +23,9 @@ export function CrossfitMobile({ isPlaying }: CrossfitMobileProps) {
     <div className={`pv-mobile-shell${isPlaying ? ' is-playing' : ''}`}>
       <div className="pv-shared-hero" style={{ minHeight: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div className="pv-shared-hero-bg" />
+        <TemplateHeroPhoto src={crossfitThumb} alt="Gimnasio industrial con barras y cuerdas de crossfit" sizes="220px" />
         <div className="pv-shared-hero-overlay" />
+        <span className="pv-hero-chip">🔥 Clases todos los días</span>
         <div style={{ position: 'relative', zIndex: 1, display: 'grid', justifyItems: 'center', gap: '0.3rem' }}>
           <svg className="pv-shared-ring" viewBox="0 0 80 80" aria-hidden="true" style={{ width: '92px', height: '92px' }}>
             <circle className="pv-shared-ring-track" cx="40" cy="40" r="34" />
@@ -35,10 +47,13 @@ export function CrossfitMobile({ isPlaying }: CrossfitMobileProps) {
       </div>
 
       <div className="pv-mobile-navbar" aria-hidden="true">
-        <span className="pv-mobile-navicon is-active" />
-        <span className="pv-mobile-navicon" />
-        <span className="pv-mobile-navicon" />
-        <span className="pv-mobile-navicon" />
+        {NAV_ICONS.map((path, index) => (
+          <span className={`pv-mobile-navicon${index === 0 ? ' is-active' : ''}`} key={index}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {path}
+            </svg>
+          </span>
+        ))}
       </div>
     </div>
   );

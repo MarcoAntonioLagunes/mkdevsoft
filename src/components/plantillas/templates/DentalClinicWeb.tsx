@@ -1,9 +1,7 @@
-const SERVICES = [
-  { name: 'Limpieza dental', meta: '✓' },
-  { name: 'Ortodoncia', meta: '✓' },
-  { name: 'Blanqueamiento', meta: '✓' },
-  { name: 'Implantes', meta: '✓' },
-];
+import dentalHero from '../../../../public/plantillas/dental-hero.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
+
+const SERVICES = ['Limpieza dental', 'Ortodoncia invisible', 'Blanqueamiento dental', 'Implantes dentales'];
 
 type DentalClinicWebProps = {
   isPlaying: boolean;
@@ -14,35 +12,44 @@ export function DentalClinicWeb({ isPlaying }: DentalClinicWebProps) {
     <div className={`pv-web-shell${isPlaying ? ' is-playing' : ''}`}>
       <nav className="pv-web-nav">
         <span className="pv-web-logo">Sonrisa Dental</span>
-        <div className="pv-web-links">
-          <span>Servicios</span>
-          <span>Citas</span>
-          <span>Nosotros</span>
+        <div className="pv-web-nav-right">
+          <div className="pv-web-links">
+            <span>Servicios</span>
+            <span>Citas</span>
+            <span>Nosotros</span>
+          </div>
+          <span className="pv-web-nav-cta">Agendar cita</span>
         </div>
       </nav>
 
       <div className="pv-shared-hero">
         <div className="pv-shared-hero-bg" />
+        <TemplateHeroPhoto src={dentalHero} alt="Instrumental dental profesional sobre superficie azul clínica" />
         <div className="pv-shared-hero-overlay" />
+        <span className="pv-hero-chip">🦷 +15 años de experiencia</span>
         <div className="pv-shared-hero-content">
-          <span className="pv-shared-badge">Cita confirmada</span>
           <p className="pv-shared-kicker">Odontología integral</p>
           <h3 className="pv-shared-headline">
-            Sonrisas sanas, <span>cuidado real</span>
+            Tu sonrisa, <span>nuestra prioridad</span>
           </h3>
-          <span className="pv-shared-cta">Agendar cita</span>
+          <div className="pv-hero-actions">
+            <span className="pv-shared-cta">Agendar cita</span>
+            <span className="pv-shared-cta--secondary">Ver servicios</span>
+          </div>
         </div>
       </div>
 
-      <div className="pv-shared-list">
-        <div className="pv-shared-list-track">
-          {[...SERVICES, ...SERVICES].map((item, index) => (
-            <div className="pv-shared-list-row" key={`${item.name}-${index}`}>
-              <span>{item.name}</span>
-              <span className="pv-shared-list-row-accent">{item.meta}</span>
-            </div>
-          ))}
-        </div>
+      <div className="pv-service-list">
+        {SERVICES.map((name, index) => (
+          <div className="pv-service-item" key={name} style={{ animationDelay: `${index * 0.9}s` }}>
+            <span className="pv-service-icon">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3.5 8.5 6.5 11.5 12.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            <span>{name}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

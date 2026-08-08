@@ -1,3 +1,7 @@
+import type { CSSProperties } from 'react';
+import veterinariaBanner from '../../../../public/plantillas/veterinaria-banner.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
+
 const SLOTS = [
   { label: '9:00', delay: '0s' },
   { label: '11:30', delay: '1.6s' },
@@ -22,19 +26,25 @@ export function VetDashboard({ isPlaying }: VetDashboardProps) {
       </div>
 
       <div className="pv-app-main">
+        <div className="pv-app-photo-strip" style={{ margin: '-0.85rem -0.9rem 0' }}>
+          <TemplateHeroPhoto src={veterinariaBanner} alt="Veterinario revisando a un perro pomerania con estetoscopio" sizes="360px" />
+          <div className="pv-app-photo-strip-overlay" />
+          <span className="pv-hero-chip">🐾 Atención de urgencias</span>
+        </div>
+
         <div className="pv-app-topbar">
           <span className="pv-app-title">Vet Amigo</span>
           <span className="pv-shared-badge">🐾 Nueva mascota</span>
         </div>
 
-        <div className="pv-app-metrics">
-          <div className="pv-app-metric">
-            <span className="pv-app-metric-value">54</span>
-            <span className="pv-app-metric-label">Mascotas activas</span>
+        <div className="pv-stat-row">
+          <div className="pv-stat-card">
+            <span className="pv-stat-value" style={{ '--count-target': 54 } as CSSProperties} />
+            <span className="pv-stat-label">Mascotas activas</span>
           </div>
-          <div className="pv-app-metric">
-            <span className="pv-app-metric-value">8</span>
-            <span className="pv-app-metric-label">Citas hoy</span>
+          <div className="pv-stat-card">
+            <span className="pv-stat-value" style={{ '--count-target': 8 } as CSSProperties} />
+            <span className="pv-stat-label">Citas hoy</span>
           </div>
         </div>
 

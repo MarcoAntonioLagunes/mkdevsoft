@@ -1,4 +1,6 @@
 import type { CSSProperties } from 'react';
+import modaBanner from '../../../../public/plantillas/moda-banner.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
 
 const CATEGORY_BARS = [58, 82, 45, 70, 90, 63];
 
@@ -20,6 +22,12 @@ export function FashionEcommerceDashboard({ isPlaying }: FashionEcommerceDashboa
       </div>
 
       <div className="pv-app-main">
+        <div className="pv-app-photo-strip" style={{ margin: '-0.85rem -0.9rem 0' }}>
+          <TemplateHeroPhoto src={modaBanner} alt="Boutique de moda con prendas exhibidas en ganchos de madera" sizes="360px" />
+          <div className="pv-app-photo-strip-overlay" />
+          <span className="pv-hero-chip">👗 Nueva colección</span>
+        </div>
+
         <div className="pv-app-topbar">
           <span className="pv-app-title">Moda Lúa</span>
           <span className="pv-shared-badge">Nuevo pedido</span>
@@ -30,9 +38,9 @@ export function FashionEcommerceDashboard({ isPlaying }: FashionEcommerceDashboa
             <span className="pv-app-metric-value">$48.2K</span>
             <span className="pv-app-metric-label">Ventas del mes</span>
           </div>
-          <div className="pv-app-metric">
-            <span className="pv-app-metric-value">214</span>
-            <span className="pv-app-metric-label">Pedidos</span>
+          <div className="pv-stat-card">
+            <span className="pv-stat-value" style={{ '--count-target': 214 } as CSSProperties} />
+            <span className="pv-stat-label">Pedidos</span>
           </div>
         </div>
 

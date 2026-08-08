@@ -1,4 +1,6 @@
 import type { CSSProperties } from 'react';
+import marketingBanner from '../../../../public/plantillas/marketing-banner.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
 
 type MarketingDashboardProps = {
   isPlaying: boolean;
@@ -18,6 +20,12 @@ export function MarketingDashboard({ isPlaying }: MarketingDashboardProps) {
       </div>
 
       <div className="pv-app-main">
+        <div className="pv-app-photo-strip" style={{ margin: '-0.85rem -0.9rem 0' }}>
+          <TemplateHeroPhoto src={marketingBanner} alt="Laptop mostrando panel de analítica con métricas en tiempo real" sizes="360px" />
+          <div className="pv-app-photo-strip-overlay" />
+          <span className="pv-hero-chip">📈 Resultados medibles</span>
+        </div>
+
         <div className="pv-app-topbar">
           <span className="pv-app-title">Estudio Impulso</span>
           <span className="pv-shared-badge">Campaña activa</span>

@@ -36,6 +36,7 @@ export function TemplatePreviewCard({ id, title, industry, type, accent, url, Co
   return (
     <motion.article
       className="card pv-card"
+      style={accentStyle}
       layout
       initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -43,7 +44,7 @@ export function TemplatePreviewCard({ id, title, industry, type, accent, url, Co
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
       whileHover={prefersReducedMotion ? undefined : { y: -10, scale: 1.02 }}
     >
-      <div ref={ref} className={`pv-card-frame-wrap${type === 'mobile' ? ' pv-card-frame-wrap--mobile' : ''}`} style={accentStyle}>
+      <div ref={ref} className={`pv-card-frame-wrap${type === 'mobile' ? ' pv-card-frame-wrap--mobile' : ''}`}>
         {type === 'mobile' ? <PhoneFrame>{preview}</PhoneFrame> : <BrowserFrame url={url}>{preview}</BrowserFrame>}
       </div>
 

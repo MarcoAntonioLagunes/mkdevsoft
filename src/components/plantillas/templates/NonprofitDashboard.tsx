@@ -1,3 +1,6 @@
+import ongBanner from '../../../../public/plantillas/ong-banner.webp';
+import { TemplateHeroPhoto } from '../TemplateHeroPhoto';
+
 type NonprofitDashboardProps = {
   isPlaying: boolean;
 };
@@ -16,6 +19,12 @@ export function NonprofitDashboard({ isPlaying }: NonprofitDashboardProps) {
       </div>
 
       <div className="pv-app-main">
+        <div className="pv-app-photo-strip" style={{ margin: '-0.85rem -0.9rem 0' }}>
+          <TemplateHeroPhoto src={ongBanner} alt="Voluntarios empacando cajas de donación para una organización benéfica" sizes="360px" />
+          <div className="pv-app-photo-strip-overlay" />
+          <span className="pv-hero-chip">🤝 Impacto transparente</span>
+        </div>
+
         <div className="pv-app-topbar">
           <span className="pv-app-title">Fundación Puente</span>
           <span className="pv-shared-badge">Campaña activa</span>
