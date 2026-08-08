@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSearchParams } from 'next/navigation';
 import { z } from 'zod';
-import { templates } from '@/data/templates';
+import { plantillas } from '@/data/plantillas';
 import styles from './contact-form.module.css';
 
 const contactSchema = z.object({
@@ -34,7 +34,7 @@ export function ContactForm() {
   const searchParams = useSearchParams();
   const requestedTemplate = useMemo(() => {
     const templateId = searchParams.get('plantilla');
-    return templateId ? templates.find((template) => template.id === templateId) : undefined;
+    return templateId ? plantillas.find((template) => template.id === templateId) : undefined;
   }, [searchParams]);
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormValues>({
@@ -49,7 +49,7 @@ export function ContactForm() {
       goal: '',
       budget: '',
       timeline: '',
-      description: requestedTemplate ? `Me interesa: ${requestedTemplate.name}. ` : '',
+      description: requestedTemplate ? `Me interesa: ${requestedTemplate.title}. ` : '',
       honeypot: '',
     },
   });

@@ -3,31 +3,21 @@
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { SectionEyebrow } from '@/components/ui/section-eyebrow';
-import { templates, type TemplateCategory } from '@/data/templates';
-import { TemplateCard } from '@/components/templates/TemplateCard';
+import { plantillas, type PlantillaType } from '@/data/plantillas';
+import { TemplatePreviewCard } from '@/components/plantillas/TemplatePreviewCard';
 
-type FilterId = 'todas' | TemplateCategory;
+type FilterId = 'todas' | PlantillaType;
 
 const CATEGORIES: { id: FilterId; label: string }[] = [
   { id: 'todas', label: 'Todas' },
-  { id: 'corporativo', label: 'Corporativo' },
-  { id: 'ecommerce', label: 'E-commerce' },
-  { id: 'portafolio', label: 'Portafolio' },
-  { id: 'landing', label: 'Landing de servicios' },
-  { id: 'restaurantes', label: 'Restaurantes' },
+  { id: 'web', label: 'Web' },
+  { id: 'webapp', label: 'Web App' },
+  { id: 'mobile', label: 'Móvil' },
 ];
-
-const CATEGORY_LABELS: Record<TemplateCategory, string> = {
-  corporativo: 'Corporativo',
-  ecommerce: 'E-commerce',
-  portafolio: 'Portafolio',
-  landing: 'Landing de servicios',
-  restaurantes: 'Restaurantes',
-};
 
 export function Plantillas() {
   const [activeCategory, setActiveCategory] = useState<FilterId>('todas');
-  const filtered = activeCategory === 'todas' ? templates : templates.filter((item) => item.category === activeCategory);
+  const filtered = activeCategory === 'todas' ? plantillas : plantillas.filter((item) => item.type === activeCategory);
 
   return (
     <section className="section" id="plantillas">
@@ -35,10 +25,10 @@ export function Plantillas() {
         <header className="section-heading">
           <SectionEyebrow>Plantillas</SectionEyebrow>
           <h2>Diseños listos para tu negocio.</h2>
-          <p>Explora plantillas profesionales por categoría y encuentra el punto de partida ideal para tu proyecto.</p>
+          <p>Explora plantillas profesionales por tipo de interfaz y encuentra el punto de partida ideal para tu proyecto.</p>
         </header>
 
-        <div className="templates-filter-bar" role="tablist" aria-label="Filtrar plantillas por categoría">
+        <div className="templates-filter-bar" role="tablist" aria-label="Filtrar plantillas por tipo de interfaz">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.id}
@@ -56,7 +46,16 @@ export function Plantillas() {
         <div className="templates-grid">
           <AnimatePresence mode="popLayout">
             {filtered.map((template) => (
-              <TemplateCard key={template.id} template={template} />
+              <TemplatePreviewCard
+                key={template.id}
+                id={template.id}
+                title={template.title}
+                industry={template.industry}
+                type={template.type}
+                accent={template.accent}
+                url={template.url}
+                Component={template.Component}
+              />
             ))}
           </AnimatePresence>
         </div>

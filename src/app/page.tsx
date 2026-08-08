@@ -192,7 +192,7 @@ export default function HomePage() {
           <header className="section-heading"><p className="section-label">Servicios</p><h2>Soluciones construidas para tu negocio.</h2></header>
           <div className="service-grid">
             {services.map((service, index) => (
-              <IconCard
+              <IconCard 
                 key={`${service.href}-${service.title}`}
                 icon={service.icon}
                 title={service.title}
@@ -204,10 +204,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <Pricing />
-
-      <QuoteCalculator />
 
       <Plantillas />
 
@@ -265,6 +261,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Pricing />
+
+      <QuoteCalculator />
 
       <Faq />
 
