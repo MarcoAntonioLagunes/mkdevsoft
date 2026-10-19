@@ -6,7 +6,7 @@ import { TerminalMockup } from '@/components/home/terminal-mockup';
 import { IconCard } from '@/components/ui/icon-card';
 import { Pricing } from '@/components/home/pricing';
 import { QuoteCalculator } from '@/components/home/quote-calculator';
-import { Plantillas } from '@/components/home/plantillas';
+import { Proyectos } from '@/components/home/proyectos';
 import { Guarantees } from '@/components/home/guarantees';
 import { Comparison } from '@/components/home/comparison';
 import { Faq } from '@/components/home/faq';
@@ -205,7 +205,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Plantillas />
+      <Proyectos />
 
       <section className="section">
         <div className="container">

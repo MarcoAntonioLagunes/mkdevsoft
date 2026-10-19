@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSearchParams } from 'next/navigation';
 import { z } from 'zod';
-import { plantillas } from '@/data/plantillas';
+import { projects } from '@/data/projects';
 import styles from './contact-form.module.css';
 
 const contactSchema = z.object({
@@ -33,8 +33,8 @@ export function ContactForm() {
   const [cooldown, setCooldown] = useState(false);
   const searchParams = useSearchParams();
   const requestedTemplate = useMemo(() => {
-    const templateId = searchParams.get('plantilla');
-    return templateId ? plantillas.find((template) => template.id === templateId) : undefined;
+    const projectId = searchParams.get('proyecto');
+    return projectId ? projects.find((project) => project.id === projectId) : undefined;
   }, [searchParams]);
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormValues>({

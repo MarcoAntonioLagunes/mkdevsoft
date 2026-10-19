@@ -35,9 +35,26 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: company.name,
+  url: company.website,
+  email: company.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Boca del Río',
+    addressRegion: 'Veracruz',
+    addressCountry: 'MX',
+  },
+};
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
+      <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      </head>
       <body className={`${sora.variable} ${spaceGrotesk.variable} ${inter.variable} ${jetBrainsMono.variable}`}>
         <ParticleBackground />
         <div className="site-shell">
